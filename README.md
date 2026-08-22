@@ -20,11 +20,33 @@ Changes to the protocol must be published as a new version. The `v0.1.0` files s
 
 The initial validation is dogfooding across real decisions, comparing an ordinary AI response with a protocol-guided response.
 
+## Run the Sensemaking skill
+
+The repository includes a standalone agent skill at `.agents/skills/sensemaking`. Codex discovers it automatically when working inside this repository.
+
+Invoke it explicitly:
+
+```text
+$sensemaking
+
+Should we redesign our onboarding flow?
+```
+
+For personal use across projects, ask Codex's skill installer:
+
+```text
+$skill-installer install the sensemaking skill from https://github.com/faisaladi/sensemaking
+```
+
+The skill supports quick checks, full cases, and rigorous cases. It enforces a framing checkpoint before evaluating solutions when the request could imply multiple decisions or objectives.
+
 ## Repository structure
 
 ```text
 docs/protocol/   Frozen protocol releases
 docs/templates/  Version-matched working templates
+.agents/skills/  Installable Sensemaking skill
+evals/           Behavioral validation cases
 CHANGELOG.md     Release history
 VERSION          Current released version
 ```

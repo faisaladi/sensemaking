@@ -2,6 +2,14 @@
 
 All notable changes to the Sensemaking Protocol are recorded here.
 
+## Sensemaking Skill v0.1.0 — 2026-08-22
+
+- Added a standalone, repository-scoped agent skill implementing Protocol v0.1.0.
+- Added a mandatory framing checkpoint for ambiguous decision scopes and objectives.
+- Added proportional quick-check, full-case, and rigorous-case routing.
+- Added self-contained protocol and case-template resources for isolated agents.
+- Added five behavioral cases covering premature solution selection and over-processing.
+
 ## v0.1.0 — 2026-08-22
 
 Status: frozen initial draft.

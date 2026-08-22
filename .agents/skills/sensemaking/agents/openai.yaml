@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sensemaking"
+  short_description: "Structure ambiguous decisions before acting"
+  default_prompt: "Use $sensemaking to frame this question before recommending action."
