@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sensemaking"
+  short_description: "Investigate ambiguity with a living evidence map"
+  default_prompt: "Use $sensemaking to investigate this problem with me and keep our evolving reasoning state clear."
