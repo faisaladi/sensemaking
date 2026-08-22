@@ -1,5 +1,7 @@
 # Sensemaking Skill v0.1.0 — Behavioral Cases
 
+Status: superseded by `sensemaking-skill-v0.2.0.md`. Retained as historical evidence of the mandatory framing-gate design; do not use it as the current acceptance suite.
+
 These cases test decisions, not exact wording or headings.
 
 ## Case 1 — Ambiguous downstream questions

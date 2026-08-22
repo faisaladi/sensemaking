@@ -38,7 +38,9 @@ For personal use across projects, ask Codex's skill installer:
 $skill-installer install the sensemaking skill from https://github.com/faisaladi/sensemaking
 ```
 
-The skill supports quick checks, full cases, and rigorous cases. It enforces a framing checkpoint before evaluating solutions when the request could imply multiple decisions or objectives.
+The skill supports quick checks, collaborative investigations, and rigorous case artifacts. Skill `v0.2.0` keeps the protocol as an internal reasoning contract while defaulting to natural conversation, active agent reasoning, selective clarification, and progressive disclosure.
+
+During ordinary use, the agent should choose the next reasoning move rather than expose protocol steps. Full case structure appears only when it materially helps or is explicitly requested.
 
 ## Repository structure
 

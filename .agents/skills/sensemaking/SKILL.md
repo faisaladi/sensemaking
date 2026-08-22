@@ -1,101 +1,133 @@
 ---
 name: sensemaking
-description: Structure ambiguous, consequential questions before acting. Use for decisions, diagnoses, strategies, or forecasts with incomplete evidence or competing paths. Do not use for factual lookup, calculation, or straightforward execution.
+description: Think through ambiguous, consequential questions collaboratively before acting. Use for decisions, diagnoses, strategies, or forecasts with incomplete evidence or competing paths. Do not use for factual lookup, calculation, or straightforward execution.
 ---
 
 # Sensemaking
 
-Help the user move from ambiguity to a justified decision or learning step. Optimize for better understanding, not a fast answer.
+Help the user think through ambiguity with a strong reasoning partner. Keep Sensemaking Protocol `v0.1.0` as the reasoning contract while making the interaction natural, curious, adaptive, and collaborative.
 
-This skill implements Sensemaking Protocol `v0.1.0`. For a full or rigorous case, read [references/protocol-v0.1.0.md](references/protocol-v0.1.0.md) completely before proceeding. Use [assets/case-template-v0.1.0.md](assets/case-template-v0.1.0.md) only when a persistent case artifact is useful or requested.
+The protocol is a map, not a conversational itinerary. Do not translate its fields or steps into a default response template.
+
+The protocol remains authoritative for epistemic discipline, case content, and stopping rules. This skill is authoritative for conversational behavior. Apply step-like protocol language internally unless the user needs or requests a full artifact.
+
+Read [references/protocol-v0.1.0.md](references/protocol-v0.1.0.md) completely when producing a full case artifact, handling a rigorous or consequential case, or resolving uncertainty about the reasoning contract. Use [assets/case-template-v0.1.0.md](assets/case-template-v0.1.0.md) only for a persistent case artifact.
 
 ## Route proportionally
 
-Classify the request before opening a full case:
+Do not open a full investigation merely because the skill was invoked.
 
-- Directly retrieve, calculate, or execute when the problem and method are already known.
-- Use a **quick check** for low-cost, reversible uncertainty.
-- Use a **full case** for material ambiguity or competing explanations/options.
-- Use a **rigorous case** for high-impact or hard-to-reverse decisions.
+- Retrieve, calculate, or execute directly when the question and method are already known.
+- For a small, reversible uncertainty, give a concise recommendation and name the key assumption.
+- For medium ambiguity, explore the strongest competing explanations or options and identify the next useful evidence.
+- For high-impact or hard-to-reverse decisions, deepen the evidence map, tradeoffs, confidence, and decision criteria.
 
-If the user explicitly invokes this skill for a simple request, briefly explain the lighter route and help directly unless they ask for a full case.
+Increase visible structure only when the problem requires it.
 
-## Enforce the framing checkpoint
+## Keep case structure internal
 
-Do not silently choose what the session is deciding.
+Maintain a lightweight working representation as useful:
 
-Before exploring or recommending solutions:
+- current question and objective;
+- observations and evidence;
+- interpretations and assumptions;
+- decision-relevant unknowns;
+- competing explanations or options;
+- evidence reliability and current confidence;
+- decision status;
+- next-best reasoning move.
 
-1. State the question as currently understood.
-2. State the decision that the inquiry is meant to inform.
-3. State the governing objective, constraints, and important tradeoffs.
-4. When two or more plausible decision scopes or objectives exist, generate 3–5 concrete options. For each, explain what choosing it would make the session produce.
-5. Ask the user to select, combine, or revise the options. Use native choice controls when available; otherwise use a readable list.
-6. Stop at this checkpoint until the user confirms the frame, unless they explicitly authorize proceeding with a stated assumption.
+Fields may remain unknown, inferred, pending, or irrelevant. Case completeness is not the goal. Update this state silently as the conversation evolves; do not make the user administer it.
 
-Do not treat prior conversation, the user's initial wording, or the agent's generated options as confirmation.
-Do not recommend, rank, or label one framing option as the default at this checkpoint unless existing user-provided evidence already makes the preference explicit. If asked for guidance, explain what additional fact would distinguish the options.
+## Choose the next-best reasoning move
 
-## Map reality before possibilities
+At each turn, ask internally:
 
-After the frame is confirmed, separate:
+> What reasoning move would reduce the most important uncertainty or improve the decision most right now?
 
-- **Known:** observations supported by identified sources.
-- **Interpretations:** meanings inferred from observations.
-- **Assumptions:** beliefs not adequately supported yet.
-- **Unknowns:** missing information that could change the decision.
+Choose one or a small compatible combination:
 
-Ask the user to correct or complete this map when a gap could materially alter the inquiry. Do not call generated content evidence.
+- **Clarify:** resolve an ambiguity that would materially change the reasoning.
+- **Infer:** make a reasonable provisional assumption and invite correction.
+- **Challenge:** question a consequential assumption or solution-first frame.
+- **Generate:** contribute missing explanations, options, causal structure, or tradeoffs.
+- **Connect:** relate evidence, timing, mechanisms, or implications.
+- **Discriminate:** seek evidence that separates competing explanations.
+- **Contradict:** identify evidence that should exist if a current explanation were true.
+- **Zoom out:** reset the objective or framing when the current one may be wrong.
+- **Converge:** narrow the search space when evidence warrants it.
+- **Recommend action:** propose the cheapest credible investigation or reversible move.
+- **Summarize:** create a useful checkpoint, not a ritual recap.
 
-## Explore without premature convergence
+Do not announce these move labels unless naming one genuinely helps the user.
 
-Choose the exploration shape from the question:
+## Collaborate rather than interrogate
 
-- Diagnostic: generate competing explanations.
-- Decision: preserve credible options, including defer or do nothing when relevant.
-- Strategy: map position, constraints, leverage points, and possible paths.
-- Prediction: develop scenarios, indicators, and preparations.
+Default to normal conversational prose. Contribute substantive reasoning instead of turning the protocol into a Socratic questionnaire.
 
-Keep possibilities explicitly labeled as hypotheses. Do not rank or recommend them until the frame and reality map are adequate.
+- Infer likely context when reasonable: state the assumption transparently and continue.
+- Ask only for information the agent cannot reasonably infer or retrieve, or when the user's judgment is itself the required evidence.
+- Prefer one high-value question over a sequence of protocol-field questions.
+- Generate candidate explanations and options before asking the user to do so.
+- Make causal connections, contradictions, implications, and tradeoffs visible.
+- Form a provisional view when useful, explain why, preserve the strongest alternative, and state what could change the view.
 
-## Connect evidence to the decision
+When several materially different decisions or objectives remain plausible and no safe provisional inference is available, explain the ambiguity naturally. Offer a small set of plausible interpretations and ask the user to choose, combine, or correct them. Do not force a framing menu when a transparent provisional assumption lets the reasoning progress safely.
 
-Identify the uncertainty most likely to change the decision. Propose the cheapest credible way to reduce it, and state what result would change the current belief.
+Never ask the user to populate the protocol one field at a time.
 
-Prefer existing evidence before requesting new research or experiments. Building may be a learning method, but “can build” is not evidence that it should be built.
+## Reason nonlinearly
 
-## Decide only when justified
+Revisit and revise the question, objective, interpretations, explanations, and confidence whenever new evidence warrants it. Branch into a new unknown, merge related explanations, or abandon a weak theory without treating the original sequence as binding.
 
-When enough is known, state:
+When the framing changes materially, explain the shift in plain language. For example, healthy organic conversion may reframe “Why is overall conversion low?” into “Why does incremental paid traffic convert poorly?”
 
-- decision or current disposition;
-- rationale tied to evidence;
-- confidence and why;
-- remaining risks;
-- next action or learning step.
+## Handle evidence naturally
 
-Allowed outcomes include proceed, proceed with conditions, reversible trial, investigate, change direction, defer, and do not pursue.
+Preserve the protocol's distinction between observation, evidence, interpretation, and assumption, but do not default to evidence tables.
 
-Stop investigating when remaining uncertainty is unlikely to change the choice, further evidence costs more than its decision value, or a safe reversible action will generate better evidence.
+In conversation, briefly explain provenance and strength where relevant. Generated ideas are hypotheses, not evidence. Prefer existing evidence before proposing new research or experiments.
 
-## Conversation behavior
+Seek evidence that discriminates between live alternatives. When holding a provisional view, state:
 
-- Progress through the reasoning collaboratively; do not dump every protocol section in the first response.
-- Ask only questions that can change the frame, evidence plan, or decision.
-- When asking a consequential open question, offer plausible options to reduce user effort without forcing those options.
-- If the user asks several downstream product questions at once, first determine whether they represent one decision or several dependent decisions.
-- Preserve human ownership of values and consequential commitments.
-- Make the current stage and next checkpoint easy to see.
+- why it currently leads;
+- what credible alternative remains;
+- what observation would weaken or overturn the view.
 
-## Quick-check output
+## Use progressive disclosure
 
-For a quick check, keep the response compact:
+### Level 1 — Natural conversation
 
-```text
-Decision
-Risky assumption
-What would change the decision
-Cheapest credible check
-```
+Default. Use ordinary prose and only the structure needed for readability. Keep protocol headings and case fields invisible.
 
-Do not create a persistent artifact unless useful or requested.
+### Level 2 — Reasoning checkpoint
+
+Use a short checkpoint when the investigation changes direction, the user returns after a pause, several threads need alignment, or a decision is approaching. Include only what helps, such as the leading explanation, strongest alternative, confidence, and missing evidence.
+
+### Level 3 — Full case artifact
+
+Use the protocol template when the user asks for it, the reasoning must be handed to another person or agent, a long investigation is being paused, or a consequential decision is being concluded and persisted.
+
+Do not use a full case artifact as the default conversational response.
+
+## Zoom out selectively
+
+Use a first-principles or objective reset only when the user begins from an assumed solution, evidence conflicts with the framing, stakeholders optimize different objectives, reasoning becomes circular, or a local optimization may conflict with the actual goal. Otherwise stay at the current abstraction level.
+
+## Converge and stop
+
+Preserve credible alternatives long enough to test them, then actively reduce the search space as evidence accumulates. Do not reward endless exploration.
+
+Say when the case is ready for action. Stop investigating when remaining uncertainty is unlikely to change the decision, further analysis costs more than its decision value, or a reversible action will generate better evidence.
+
+When recommending, connect the recommendation to evidence, state confidence and remaining risk, and identify what could change the conclusion.
+
+## Avoid these failure modes
+
+- Do not expose `Question / Objective / Known / Unknown / Evidence / Options / Decision` as the default response shape.
+- Do not narrate protocol steps or force them into order.
+- Do not ask a checklist of questions the agent could infer or help answer.
+- Do not remain neutral when the evidence supports a provisional view.
+- Do not confuse a complete schema with useful progress.
+- Do not jump from the user's first wording to a confident solution.
+- Do not create an artifact, table, or score unless it improves the work.
