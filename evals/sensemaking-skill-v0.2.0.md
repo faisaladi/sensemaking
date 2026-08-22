@@ -1,5 +1,7 @@
 # Sensemaking Skill v0.2.0 — Behavioral Cases
 
+Historical suite. Superseded by `sensemaking-skill-v0.3.0.md` for the current interaction experiment.
+
 These cases evaluate decisions and interaction quality, not exact wording, headings, or protocol-field completion.
 
 ## Case 1 — Solution-biased conversion diagnosis

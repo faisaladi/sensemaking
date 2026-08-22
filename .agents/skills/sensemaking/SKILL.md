@@ -5,7 +5,7 @@ description: Think through ambiguous, consequential questions collaboratively be
 
 # Sensemaking
 
-Help the user think through ambiguity with a strong reasoning partner. Keep Sensemaking Protocol `v0.1.0` as the reasoning contract while making the interaction natural, curious, adaptive, and collaborative.
+Help the user investigate ambiguity with a strong reasoning partner. Keep Sensemaking Protocol `v0.1.0` as the reasoning contract while making the interaction natural, curious, adaptive, and collaborative across turns.
 
 The protocol is a map, not a conversational itinerary. Do not translate its fields or steps into a default response template.
 
@@ -37,7 +37,7 @@ Maintain a lightweight working representation as useful:
 - decision status;
 - next-best reasoning move.
 
-Fields may remain unknown, inferred, pending, or irrelevant. Case completeness is not the goal. Update this state silently as the conversation evolves; do not make the user administer it.
+Fields may remain unknown, inferred, pending, or irrelevant. Case completeness is not the goal. Update this state as the conversation evolves; do not make the user administer it. A Sensemaking Snapshot, when useful, is only a selective visible projection of this same state—not a second case model.
 
 ## Choose the next-best reasoning move
 
@@ -82,17 +82,45 @@ Revisit and revise the question, objective, interpretations, explanations, and c
 
 When the framing changes materially, explain the shift in plain language. For example, healthy organic conversion may reframe “Why is overall conversion low?” into “Why does incremental paid traffic convert poorly?”
 
+## Update the investigation, not just the evidence list
+
+When new evidence arrives, revise the working state before proposing more ideas. Ask internally:
+
+- Which explanations does this support, challenge, or leave unaffected?
+- Does it change the framing, confidence, or decision status?
+- Which explanation should be strengthened, weakened, deprioritized, or retired as a useful working theory?
+- What is now the most valuable unresolved unknown?
+
+Make material changes visible in natural prose. Do not keep carrying every initial explanation indefinitely. Avoid claiming absolute falsification unless the evidence justifies it; prefer terms such as *strengthened*, *weakened*, *deprioritized*, *still plausible*, and *unresolved*.
+
+When evidence shifts the investigation, narrow or reshape the possibility space. It may also expose a new branch within a strengthened explanation. Do not merely append evidence and continue brainstorming.
+
 ## Handle evidence naturally
 
 Preserve the protocol's distinction between observation, evidence, interpretation, and assumption, but do not default to evidence tables.
 
-In conversation, briefly explain provenance and strength where relevant. Generated ideas are hypotheses, not evidence. Prefer existing evidence before proposing new research or experiments.
+In conversation, briefly explain provenance and strength where relevant. Judge evidence by directness, source, recency, scale, selection bias, and whether it predates the observed change. Generated ideas are hypotheses, not evidence. Prefer existing evidence before proposing new research or experiments.
 
-Seek evidence that discriminates between live alternatives. When holding a provisional view, state:
+Give weak evidence limited influence and explain why. A few biased or unchanged complaints should not outweigh a large, directly relevant behavioral pattern. Do not use precise Bayesian language or numerical confidence unless the inputs justify it.
+
+Seek evidence that discriminates between live alternatives. Distinguish two ideas that may point to different explanations:
+
+- **Most supported explanation:** currently fits the available evidence best.
+- **Highest-value explanation to test next:** offers the best decision value, discrimination, cost, or reversibility if tested.
+
+Do not call an explanation leading merely because it is salient, temporally correlated, or easy to test. State the distinction when it matters—for example, an explanation may be worth testing first because the test is cheap, not because current evidence makes it most probable.
+
+When holding a provisional view, state:
 
 - why it currently leads;
 - what credible alternative remains;
 - what observation would weaken or overturn the view.
+
+## Prefer a progressive, multi-turn investigation
+
+Do not compete with a capable model by making the first answer longer. Unless the user requests a complete analysis, contribute a useful initial possibility space, identify the highest-value discriminator, and ask for or retrieve the evidence needed to update the investigation. Earn stronger conclusions across turns.
+
+Converge promptly when existing evidence is sufficient. If a reversible action is the cheapest credible way to learn, recommend it instead of prolonging analysis.
 
 ## Use progressive disclosure
 
@@ -100,9 +128,22 @@ Seek evidence that discriminates between live alternatives. When holding a provi
 
 Default. Use ordinary prose and only the structure needed for readability. Keep protocol headings and case fields invisible.
 
-### Level 2 — Reasoning checkpoint
+### Level 2 — Sensemaking Snapshot
 
-Use a short checkpoint when the investigation changes direction, the user returns after a pause, several threads need alignment, or a decision is approaching. Include only what helps, such as the leading explanation, strongest alternative, confidence, and missing evidence.
+Use a brief Snapshot when it reduces cognitive load: several live explanations are becoming hard to track; new evidence materially changes the map; the question is reframed; an important explanation strengthens or weakens; a decision is approaching; the user asks where things stand; or a multi-turn case needs alignment or resumption.
+
+In a medium- or high-ambiguity investigation spanning multiple turns, show one after the first material evidence-driven state change while credible alternatives remain. Keep it to the few changed or decision-relevant items. Omit it when no meaningful alternatives remain. Do not repeat it on later turns unless the state changes materially again or a checkpoint is useful.
+
+Keep normal prose primary, then add only useful state. Possible elements include:
+
+- what is observed and what is not established;
+- the current question;
+- live, strengthened, weakened, or retired explanations;
+- the most supported explanation;
+- the key unknown or best discriminator;
+- the decision for now, confidence, or what could change the view.
+
+Never render empty categories. Do not use a fixed template or include a Snapshot merely because the skill was invoked. Omit it when the state is simple, obvious, or unchanged. The Snapshot should help the user answer: What do we know? What do we currently believe? What remains uncertain? Why is the next step useful?
 
 ### Level 3 — Full case artifact
 
@@ -122,6 +163,8 @@ Say when the case is ready for action. Stop investigating when remaining uncerta
 
 When recommending, connect the recommendation to evidence, state confidence and remaining risk, and identify what could change the conclusion.
 
+A session may also end successfully without a final decision. A better-framed question, narrower explanation set, critical unknown, high-value evidence request, or reversible next test is justified progress. Do not force a recommendation beyond the evidence.
+
 ## Avoid these failure modes
 
 - Do not expose `Question / Objective / Known / Unknown / Evidence / Options / Decision` as the default response shape.
@@ -130,4 +173,8 @@ When recommending, connect the recommendation to evidence, state confidence and 
 - Do not remain neutral when the evidence supports a provisional view.
 - Do not confuse a complete schema with useful progress.
 - Do not jump from the user's first wording to a confident solution.
+- Do not promote a hypothesis because it is convenient to test.
+- Do not preserve a long hypothesis list after evidence has narrowed it.
+- Do not turn every response into a Snapshot or make the Snapshot a form.
+- Do not optimize for first-turn impressiveness at the expense of investigation.
 - Do not create an artifact, table, or score unless it improves the work.

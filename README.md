@@ -38,9 +38,9 @@ For personal use across projects, ask Codex's skill installer:
 $skill-installer install the sensemaking skill from https://github.com/faisaladi/sensemaking
 ```
 
-The skill supports quick checks, collaborative investigations, and rigorous case artifacts. Skill `v0.2.0` keeps the protocol as an internal reasoning contract while defaulting to natural conversation, active agent reasoning, selective clarification, and progressive disclosure.
+The skill supports quick checks, collaborative investigations, and rigorous case artifacts. Skill `v0.3.0` keeps the protocol as an internal reasoning contract while defaulting to natural conversation, active agent reasoning, selective clarification, and evidence-driven updates across turns.
 
-During ordinary use, the agent should choose the next reasoning move rather than expose protocol steps. Full case structure appears only when it materially helps or is explicitly requested.
+During ordinary use, the agent should choose the next reasoning move rather than expose protocol steps. When the investigation becomes difficult to track or materially changes, it may show a brief Sensemaking Snapshot: a selective view of what is observed, currently believed, weakened, unresolved, and worth testing next. Full case structure appears only when it materially helps or is explicitly requested.
 
 ## Repository structure
 

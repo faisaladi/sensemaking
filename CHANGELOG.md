@@ -2,6 +2,16 @@
 
 All notable changes to the Sensemaking Protocol are recorded here.
 
+## Sensemaking Skill v0.3.0 — 2026-08-22
+
+- Added the selective Sensemaking Snapshot as a lightweight visible projection of the existing case state.
+- Made evidence update the investigation by strengthening, weakening, deprioritizing, or retiring working explanations.
+- Distinguished the most supported explanation from the highest-value explanation to test next.
+- Shifted optimization from first-turn analysis toward progressive multi-turn investigation and visible convergence.
+- Strengthened evidence-quality guidance without introducing formal Bayesian scoring.
+- Recognized reframing, narrowing, a critical evidence request, or a reversible test as valid outcomes without forcing a final decision.
+- Kept normal prose primary and Sensemaking Protocol v0.1.0 unchanged.
+
 ## Sensemaking Skill v0.2.0 — 2026-08-22
 
 - Separated the internal reasoning protocol from the user-facing interaction model.
