@@ -23,11 +23,19 @@ The initial validation is dogfooding across real decisions, comparing an ordinar
 ## Repository structure
 
 ```text
-docs/protocol/   Frozen protocol releases
-docs/templates/  Version-matched working templates
-CHANGELOG.md     Release history
-VERSION          Current released version
+docs/protocol/              Frozen protocol releases
+docs/templates/             Version-matched working templates
+.claude/skills/sensemaking/ Claude Code skill that applies the protocol
+scripts/                    Repository checks
+CHANGELOG.md                Release history
+VERSION                     Current released version
 ```
+
+## Claude Code skill
+
+`.claude/skills/sensemaking/` packages the protocol as a Claude Code skill. It loads automatically in this repository; to use it everywhere, copy the folder to `~/.claude/skills/sensemaking/`. Invoke with `/sensemaking` or let it trigger on consequential, uncertain decisions.
+
+The skill bundles byte-identical copies of the frozen protocol and template in `references/` so it works outside this repository. Run `scripts/check-skill-sync.sh` after any change to confirm the copies still match `ARTIFACTS.sha256`. The skill is tooling, not part of the protocol; editing it does not require a protocol version bump.
 
 ## Scope boundary
 
