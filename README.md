@@ -23,19 +23,35 @@ The initial validation is dogfooding across real decisions, comparing an ordinar
 ## Repository structure
 
 ```text
-docs/protocol/              Frozen protocol releases
-docs/templates/             Version-matched working templates
-.claude/skills/sensemaking/ Claude Code skill that applies the protocol
-scripts/                    Repository checks
-CHANGELOG.md                Release history
-VERSION                     Current released version
+docs/protocol/               Frozen protocol releases
+docs/templates/              Version-matched working templates
+plugins/sensemaking/         Claude Code plugin (also a plain skill folder)
+.claude-plugin/              Plugin marketplace manifest
+scripts/                     Repository checks
+CHANGELOG.md                 Release history
+VERSION                      Current released version
 ```
 
-## Claude Code skill
+## Claude Code plugin
 
-`.claude/skills/sensemaking/` packages the protocol as a Claude Code skill. It loads automatically in this repository; to use it everywhere, copy the folder to `~/.claude/skills/sensemaking/`. Invoke with `/sensemaking` or let it trigger on consequential, uncertain decisions.
+The protocol ships as a Claude Code plugin that adds one skill, `sensemaking`. The skill triggers on consequential, uncertain decisions, or you can invoke it directly.
 
-The skill bundles byte-identical copies of the frozen protocol and template in `references/` so it works outside this repository. Run `scripts/check-skill-sync.sh` after any change to confirm the copies still match `ARTIFACTS.sha256`. The skill is tooling, not part of the protocol; editing it does not require a protocol version bump.
+Install (Claude Code 2.1.275 or later):
+
+```text
+/plugin install sensemaking --marketplace faisaladi/sensemaking
+```
+
+On older versions:
+
+```text
+/plugin marketplace add faisaladi/sensemaking
+/plugin install sensemaking@sensemaking
+```
+
+Without the plugin system, copy `plugins/sensemaking/` to `~/.claude/skills/sensemaking/`. The folder is a plain skill as well as a plugin.
+
+The plugin bundles byte-identical copies of the frozen protocol and template in `plugins/sensemaking/references/`. Run `scripts/check-skill-sync.sh` after any change to confirm they still match `ARTIFACTS.sha256`, and `claude plugin validate plugins/sensemaking && claude plugin validate .` to check the manifests. The plugin is tooling, not part of the protocol: editing it bumps the plugin version in `plugin.json` and `marketplace.json`, not the protocol version.
 
 ## Scope boundary
 

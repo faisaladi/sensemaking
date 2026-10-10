@@ -1,0 +1,16 @@
+{
+  "name": "sensemaking",
+  "description": "Claude Code plugins for the open Sensemaking Protocol.",
+  "owner": {
+    "name": "Faisal",
+    "email": "faisal@courseeker.com"
+  },
+  "plugins": [
+    {
+      "name": "sensemaking",
+      "source": "./plugins/sensemaking",
+      "description": "Apply the Sensemaking Protocol v0.1.0 to consequential, uncertain decisions.",
+      "version": "0.1.0"
+    }
+  ]
+}

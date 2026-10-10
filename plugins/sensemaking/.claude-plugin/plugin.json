@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "sensemaking",
+  "version": "0.1.0",
+  "description": "Apply the Sensemaking Protocol v0.1.0: route a request, then move from an ambiguous situation to a justified decision with explicit evidence, confidence, and next action.",
+  "author": {
+    "name": "Faisal",
+    "email": "faisal@courseeker.com"
+  },
+  "homepage": "https://github.com/faisaladi/sensemaking",
+  "repository": "https://github.com/faisaladi/sensemaking",
+  "keywords": ["decision-making", "reasoning", "protocol", "sensemaking"],
+  "skills": [
+    "./"
+  ]
+}

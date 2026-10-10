@@ -4,6 +4,7 @@ All notable changes to the Sensemaking Protocol are recorded here.
 
 ## Unreleased
 
+- Packaged the skill as a Claude Code plugin (`plugins/sensemaking/`, v0.1.0) with a repo marketplace (`.claude-plugin/marketplace.json`). It moved from `.claude/skills/sensemaking/`. No protocol change.
 - Added a Claude Code skill (`.claude/skills/sensemaking/`) that applies protocol v0.1.0, with bundled copies of the frozen artifacts and `scripts/check-skill-sync.sh` to detect drift. No protocol change.
 
 ## v0.1.0 — 2026-08-22
