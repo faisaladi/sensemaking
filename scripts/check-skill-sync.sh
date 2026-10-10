@@ -4,7 +4,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-skill_refs=".claude/skills/sensemaking/references"
+skill_refs="plugins/sensemaking/references"
 status=0
 
 sha256sum -c --quiet ARTIFACTS.sha256 || status=1
